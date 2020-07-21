@@ -19,4 +19,5 @@ Les variables en début de scripts servent à choisir :
 
 La première partie du script qui renomme les fichiers doit être copiée pour chaque base de donnée qui doit être sauvegardée et de même pour l'envoi d'email (partie succès et echec).
 Il faut indiquer le chemin de destination des sauvegardes dans la variable $sql.
+Dans la section #préparation mail il faut simplement remplir les variables communes d'envoi d'email.
 Le script doit ensuite être lancé via le plannificateur des tâches de Windows avec les droits d'administrateur.
