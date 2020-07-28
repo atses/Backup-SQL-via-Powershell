@@ -1,23 +1,22 @@
-# Backup-SQL-via-Powershell
-Simple Backup complet des BDD MSSQL via Powershell avec suivi de versions et envoi d'email
-Ce script est destiné à une application sur des petits serveurs en entreprise
+# Backup-SQL-with-Powershell
+Simple full backup for MSSQL databases with Powershell, versionning and notification by email.
+This script is meant to be used on small enterprise Windows servers.
 
-#Fonctionnement
-Ce script powershell permet de faire une sauvegarde complète simple d'une base de donnée MSSQL.
-- Renomme les sauvegardes précédentes avec la date du jour de création de celles-ci (pour que le nom des fichiers correspondent au nom de la base et la date du jour de la sauvegarde)
-- Supprime les sauvegardes qui datent de plus de X jours
-- Lance la sauvegardes des bases de données via une commande SQL (en ingnorant les bases de données par défaut)
-- Check dans l'observateur d'événements Windows si la sauvegarde s'est bien passée ou pas et envoi un mail  en fonction du résultat
-Les sauvegardes sont stockées sous la forme d'un fichier .BAK dans le répertoire de destination choisi. Elle en sont pas compressées ou modifiées d'une quelconque façon.
+#What it does
+This script is meant to perform simple full backups of MSSQL databases.
+- Rename previous backups adding the creation date of the backup (backup files name will match the name of the database and the date it has been backed up)
+- Delete all backups older than X days (you have to set a number of your choice in the code)
+- Run database's backup with a SQL command ignoring default databases
+- Check Windows event viewer if the backup worked correcly or not and send an email according to the result
+Backups are stored as a .BAK file in the directory of your choice. They are not compressed nor modified, just full backup.
 
-#Utilisation
-Les variables en début de scripts servent à choisir :
-- La destination de sauvegarde (chemin Windows classique)
-- Déclarer le nom des bases de données sauvegardées (ces variables servent au suivi de version et à l'envoi d'email), il faut ajouter autant de variables que de bases de données à sauvegarder
-- Déclarer le nom du serveur SQL
-- Indiquer le nombre de jours de versionning voulu
+#How to use
+Variables on the beginning of the script are used to choose :
+- Backup path (Windows path)
+- Declare databases name you want to backup (also used for the email), you have to add as much BDDX variable as there is databases to backup
+- Declare the SQL server name
+- The number of versions (in days) you want to keep your backups)
 
-La première partie du script qui renomme les fichiers doit être copiée pour chaque base de donnée qui doit être sauvegardée et de même pour l'envoi d'email (partie succès et echec).
-Il faut indiquer le chemin de destination des sauvegardes dans la variable $sql.
-Dans la section #préparation mail il faut simplement remplir les variables communes d'envoi d'email.
-Le script doit ensuite être lancé via le plannificateur des tâches de Windows avec les droits d'administrateur.
+Remember to declare the path for your backups in the SQL command in addition to the variable in the powershell script.
+The mail setup requires simple SMTP settings to send email with the adress of your choice.
+The script must be runned by the Windows task schedule with administrator privilege.
