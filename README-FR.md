@@ -8,7 +8,8 @@ Ce script powershell permet de faire une sauvegarde complète simple d'une base 
 - Lance la sauvegardes des bases de données via une commande SQL (en ingnorant les bases de données par défaut)
 - Check dans l'observateur d'événements Windows si la sauvegarde s'est bien passée ou pas et envoi un mail en fonction du résultat Les sauvegardes sont stockées sous la forme d'un fichier .BAK dans le répertoire de destination choisi. Elle en sont pas compressées ou modifiées d'une quelconque façon.
 
-## Utilisation Les variables en début de scripts servent à choisir :
+## Utilisation
+### Les variables en début de scripts servent à choisir :
 - La destination de sauvegarde (chemin Windows classique)
 - Déclarer le nom des bases de données sauvegardées (ces variables servent au suivi de version et à l'envoi d'email), il faut ajouter autant de variables que de bases de données à sauvegarder
 - Déclarer le nom du serveur SQL
