@@ -11,7 +11,7 @@ This script is meant to perform simple full backups of MSSQL databases.
 Backups are stored as a .BAK file in the directory of your choice. They are not compressed nor modified, just full backup.
 
 ## How to use
-Variables on the beginning of the script are used to choose :
+### Variables on the beginning of the script are used to choose :
 - Backup path (Windows path)
 - Declare databases name you want to backup (also used for the email), you have to add as much BDDX variable as there is databases to backup
 - Declare the SQL server name
